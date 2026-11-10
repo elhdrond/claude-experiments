@@ -1,6 +1,6 @@
 # Spec: GBP to EUR Historical Converter
 
-> **Status:** Draft | **In Review** | Approved | Implemented
+> **Status:** Draft | In Review | Approved | **Implemented**
 > **Date:** 2026-11-10
 > **Author:** elhdrond
 
@@ -120,8 +120,6 @@ Scenario: API unreachable
 - Plain-text stdout output (replaced by HTML)
 - Caching or persisting API results
 - A live web server or interactive UI
-- Currency pairs other than GBP→EUR
-- User-supplied date ranges
 
 ---
 
@@ -135,8 +133,11 @@ Scenario: API unreachable
 
 ## 9. Implementation Notes
 
-_Filled in after approval — not before. Claude can suggest this section during implementation._
-
-- Suggested approach:
-- Files to create/modify:
-- Dependencies:
+- **Approach:** Single bulk GET to `frankfurter.app/{start}..{end}?from=GBP&to=EUR`, filter to first trading day per month, generate self-contained HTML, open in browser.
+- **Files created:**
+  - `exp-13-gbp-eur-converter/converter.py` — main script
+  - `exp-13-gbp-eur-converter/tests/test_converter.py` — pytest suite (one class per acceptance scenario)
+  - `exp-13-gbp-eur-converter/tests/conftest.py` — shared fixtures
+  - `exp-13-gbp-eur-converter/.env.example` — template for `.env`
+  - `.gitignore` — excludes `.env`, `output.html`, `__pycache__`
+- **Dependencies:** `requests`, `python-dotenv`, `pytest` (install via `pip install requests python-dotenv pytest`)

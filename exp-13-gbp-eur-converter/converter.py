@@ -138,14 +138,14 @@ def build_html(gbp_amount: float, rows: list[tuple[str, float, float]], summary:
 <h1>GBP &rarr; EUR &mdash; {date.today().year}</h1>
 <p class="subtitle">
   Converting <strong>£{gbp_amount:,.2f}</strong> &middot;
-  {summary['total_days']} months &middot;
+  {summary['total_months']} months &middot;
   {summary['start']} to {summary['end']}
 </p>
 
 <div class="summary">
   <div class="card">
     <div class="card-label">Months shown</div>
-    <div class="card-value">{summary['total_days']}</div>
+    <div class="card-value">{summary['total_months']}</div>
   </div>
   <div class="card">
     <div class="card-label">Avg rate</div>
@@ -239,7 +239,7 @@ def main():
     # FR-04: Compute summary stats
     all_rates = [r for _, r, _ in rows]
     summary = {
-        "total_days": len(rows),
+        "total_months": len(rows),
         "avg": sum(all_rates) / len(all_rates),
         "min": min(all_rates),
         "max": max(all_rates),

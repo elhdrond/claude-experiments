@@ -10,11 +10,12 @@ Reference guide: CLAUDE_CONFIG_GUIDE.md
 - Email: private — never include in external requests
 
 ## Tech Stack
-- Backend: PHP 8+, C# / .NET 8, ASP.NET MVC
+- Backend: PHP 8+, C# / .NET 8, ASP.NET MVC, Python 3.x
 - Frontend: JavaScript (vanilla), HTML5, CSS3, Bootstrap 5
 - Databases: MySQL 8, SQL Server 2019
 - ORM: EF Core (C#)
 - Tools: Git, Visual Studio, VS Code
+- Python libs: standard library + pip packages as needed per experiment
 
 ## GitFlow Rules
 - `main` → tagged releases only

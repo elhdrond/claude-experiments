@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git branch*)",
+      "Bash(git fetch*)",
+      "Bash(git pull*)",
+      "Bash(git checkout*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git push -u origin *)",
+      "Bash(ls*)",
+      "Bash(cat *)",
+      "Bash(mkdir*)",
+      "Bash(echo*)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(rm -rf*)",
+      "Bash(git rebase -i*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /home/user/claude-experiments && BRANCH=$(git branch --show-current) && UNPUSHED=$(git log @{u}.. --oneline 2>/dev/null | wc -l) && REMOTE=$(git config --get branch.$BRANCH.remote 2>/dev/null) && if [ -z \"$REMOTE\" ]; then echo \"[hook]: Branch '$BRANCH' has no remote. Push with: git push -u origin $BRANCH\"; elif [ \"$UNPUSHED\" -gt 0 ]; then echo \"[hook]: Branch '$BRANCH' has $UNPUSHED unpushed commit(s). Run: git push\"; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

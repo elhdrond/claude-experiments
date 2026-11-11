@@ -151,12 +151,17 @@
 ---
 
 ### EXP-15A · Pathfinding visualiser — BFS, DFS, A*, Dijkstra
-- **Status:** ⬜ To do
+- **Status:** ✅ Done
 - **Goal:** Build a Python pathfinding visualiser using Clean Architecture. Given a maze, four algorithms (BFS, DFS, A*, Dijkstra) each find a path and the results are shown side-by-side in a self-contained HTML output with explored cells colour-coded.
 - **Methodology:** SDD + Clean Architecture (domain / use_cases / infrastructure / interface)
 - **Spec file:** `specs/exp-15a-pathfinding-visualiser.md`
-- **Notes:**
+- **Implementation:** `exp-15a-pathfinding-visualiser/`
+- **Notes:** Four algorithm classes each implement a `PathfinderStrategy` interface. BFS and A* guarantee shortest path; DFS finds a valid path (not necessarily shortest); Dijkstra with equal weights behaves like BFS. 35 unit tests all pass. Run with `python main.py` from the experiment folder.
 - **Learnings:**
+  - Clean Architecture in Python means 0 external imports in `domain/` — the dependency rule is enforced by discipline, not a framework
+  - DFS iterative vs recursive matters: recursion limit in Python (default 1000) would fail on large mazes, iterative stack has no such limit
+  - BFS and Dijkstra (equal weights) explore the same cells — the difference becomes visible only with weighted graphs
+  - A* explores far fewer cells than BFS on open mazes because the heuristic guides it toward the goal
 
 ---
 
@@ -192,5 +197,5 @@
 | Level 1 — Immediate productivity | 4 | 0 | 0 |
 | Level 2 — AI-assisted workflow | 4 | 0 | 0 |
 | Level 3 — AI inside projects | 4 | 0 | 0 |
-| Level 4 — Spec Driven Development | 4 | 1 | 0 |
-| **Total** | **16** | **1** | **0** |
+| Level 4 — Spec Driven Development | 4 | 2 | 0 |
+| **Total** | **16** | **2** | **0** |

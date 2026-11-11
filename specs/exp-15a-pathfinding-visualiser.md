@@ -1,4 +1,4 @@
-# Spec: Pathfinding Visualiser — BFS, DFS, A*, Dijkstra
+# Spec: Pathfinding Visualiser — BFS, DFS, A\*, Dijkstra
 
 > **Status:** Draft | In Review | Approved | Implemented
 > **Date:** 2026-11-11
@@ -8,7 +8,7 @@
 
 ## 1. Goal
 
-Demonstrate and compare four classic pathfinding algorithms (BFS, DFS, A*, Dijkstra)
+Demonstrate and compare four classic pathfinding algorithms (BFS, DFS, A\*, Dijkstra)
 on the same maze, producing a self-contained HTML report that shows — side by side —
 how each algorithm explores the space and the path it finds.
 
@@ -16,39 +16,39 @@ how each algorithm explores the space and the path it finds.
 
 ## 2. Actors
 
-| Actor | Description |
-|-------|-------------|
-| User | Developer who runs the script locally to learn how pathfinding algorithms differ |
-| System | Python script that generates the HTML report |
+| Actor  | Description                                                                      |
+| ------ | -------------------------------------------------------------------------------- |
+| User   | Developer who runs the script locally to learn how pathfinding algorithms differ |
+| System | Python script that generates the HTML report                                     |
 
 ---
 
 ## 3. Functional Requirements
 
-| ID | Requirement | Priority |
-|----|-------------|----------|
-| FR-01 | The system shall load a maze from a plain-text file (`maze.txt`) where `#` = wall, ` ` = open cell, `S` = start, `E` = end. | Must |
-| FR-02 | The system shall implement BFS, DFS, A* and Dijkstra as independent, interchangeable pathfinding strategies. | Must |
-| FR-03 | Each algorithm shall return: the path found (ordered list of cells), the set of explored cells, and the number of steps taken to find the path. | Must |
-| FR-04 | The system shall generate a self-contained `output.html` file showing all four algorithm results side by side, one panel per algorithm. | Must |
-| FR-05 | Each panel shall colour-code cells: start (blue), end (blue), wall (dark), explored but not on path (light orange), path (green), unexplored (white). | Must |
-| FR-06 | Each panel shall display a summary: algorithm name, path length, cells explored, and whether a path was found. | Must |
-| FR-07 | The system shall open `output.html` automatically in the default browser after generation. | Must |
-| FR-08 | The system shall exit with code 1 and a descriptive error if `maze.txt` is missing, malformed (no S or E), or S and E are the same cell. | Must |
-| FR-09 | The system shall include a default `maze.txt` so the script works out of the box without manual setup. | Must |
-| FR-10 | A* shall use Manhattan distance as its heuristic function. | Must |
-| FR-11 | Dijkstra shall treat all open cells as having equal weight (1), making it equivalent to BFS on unweighted grids — the difference in explored cells may be visible depending on implementation. | Should |
+| ID    | Requirement                                                                                                                                                                                    | Priority |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| FR-01 | The system shall load a maze from a plain-text file (`maze.txt`) where `#` = wall, ` ` = open cell, `S` = start, `E` = end.                                                                    | Must     |
+| FR-02 | The system shall implement BFS, DFS, A\* and Dijkstra as independent, interchangeable pathfinding strategies.                                                                                  | Must     |
+| FR-03 | Each algorithm shall return: the path found (ordered list of cells), the set of explored cells, and the number of steps taken to find the path.                                                | Must     |
+| FR-04 | The system shall generate a self-contained `output.html` file showing all four algorithm results side by side, one panel per algorithm.                                                        | Must     |
+| FR-05 | Each panel shall colour-code cells: start (blue), end (blue), wall (dark), explored but not on path (light orange), path (green), unexplored (white).                                          | Must     |
+| FR-06 | Each panel shall display a summary: algorithm name, path length, cells explored, and whether a path was found.                                                                                 | Must     |
+| FR-07 | The system shall open `output.html` automatically in the default browser after generation.                                                                                                     | Must     |
+| FR-08 | The system shall exit with code 1 and a descriptive error if `maze.txt` is missing, malformed (no S or E), or S and E are the same cell.                                                       | Must     |
+| FR-09 | The system shall include a default `maze.txt` so the script works out of the box without manual setup.                                                                                         | Must     |
+| FR-10 | A\* shall use Manhattan distance as its heuristic function.                                                                                                                                    | Must     |
+| FR-11 | Dijkstra shall treat all open cells as having equal weight (1), making it equivalent to BFS on unweighted grids — the difference in explored cells may be visible depending on implementation. | Should   |
 
 ---
 
 ## 4. Non-Functional Requirements
 
-| ID | Requirement | Metric |
-|----|-------------|--------|
-| NFR-01 | Performance | Completes in < 5 s for mazes up to 50×50 cells |
-| NFR-02 | Portability | No dependencies beyond Python standard library + one optional package for HTML templating if needed |
+| ID     | Requirement  | Metric                                                                                                                                                                           |
+| ------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NFR-01 | Performance  | Completes in < 5 s for mazes up to 50×50 cells                                                                                                                                   |
+| NFR-02 | Portability  | No dependencies beyond Python standard library + one optional package for HTML templating if needed                                                                              |
 | NFR-03 | Architecture | Must follow Clean Architecture: domain entities have zero external imports; infrastructure layer contains all algorithm implementations; interface layer handles HTML generation |
-| NFR-04 | Testability | Each algorithm is independently testable with a simple grid — no HTML or file I/O required in unit tests |
+| NFR-04 | Testability  | Each algorithm is independently testable with a simple grid — no HTML or file I/O required in unit tests                                                                         |
 
 ---
 
@@ -150,8 +150,8 @@ Scenario: Malformed maze — missing S or E
 
 ## 8. Open Questions
 
-- [ ] Should DFS use recursive or iterative implementation? (Iterative avoids Python recursion limits on large mazes — recommended)
-- [ ] Should the default maze be hand-crafted or generated? (Hand-crafted gives predictable results for learning)
+- [ Iterative ] Should DFS use recursive or iterative implementation? (Iterative avoids Python recursion limits on large mazes — recommended)
+- [ Auto Generated, ask if you need something ] Should the default maze be hand-crafted or generated? (Hand-crafted gives predictable results for learning)
 
 ---
 
@@ -193,6 +193,7 @@ exp-15a-pathfinding-visualiser/
 ```
 
 ### Dependency rule (Clean Architecture)
+
 ```
 interface → use_cases → domain  ✅
 infrastructure → domain         ✅

@@ -150,6 +150,26 @@
 
 ---
 
+### EXP-15A · Pathfinding visualiser — BFS, DFS, A*, Dijkstra
+- **Status:** ⬜ To do
+- **Goal:** Build a Python pathfinding visualiser using Clean Architecture. Given a maze, four algorithms (BFS, DFS, A*, Dijkstra) each find a path and the results are shown side-by-side in a self-contained HTML output with explored cells colour-coded.
+- **Methodology:** SDD + Clean Architecture (domain / use_cases / infrastructure / interface)
+- **Spec file:** `specs/exp-15a-pathfinding-visualiser.md`
+- **Notes:**
+- **Learnings:**
+
+---
+
+### EXP-15B · Mini search engine — B-Tree, Inverted Index, Skip List
+- **Status:** ⬜ To do
+- **Goal:** Build a mini search engine in Python that demonstrates the data structures used by real systems: B-Tree (SQL indexes), inverted index (Elasticsearch/Google), and skip list (Redis sorted sets). Given a CSV dataset, each structure handles a different query type. Output: HTML with results and performance metrics.
+- **Methodology:** SDD + Clean Architecture
+- **Spec file:** `specs/exp-15b-mini-search-engine.md` _(after EXP-15A)_
+- **Notes:**
+- **Learnings:**
+
+---
+
 ### EXP-14 · SDD — Claude reviews and improves a spec
 - **Status:** ⬜ To do
 - **Goal:** Write a deliberately incomplete or vague spec and ask Claude to identify gaps, contradictions and untestable requirements. Learn what makes a good spec.
@@ -172,5 +192,5 @@
 | Level 1 — Immediate productivity | 4 | 0 | 0 |
 | Level 2 — AI-assisted workflow | 4 | 0 | 0 |
 | Level 3 — AI inside projects | 4 | 0 | 0 |
-| Level 4 — Spec Driven Development | 2 | 1 | 0 |
-| **Total** | **14** | **1** | **0** |
+| Level 4 — Spec Driven Development | 4 | 1 | 0 |
+| **Total** | **16** | **1** | **0** |

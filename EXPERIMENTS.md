@@ -175,6 +175,15 @@
 
 ---
 
+### EXP-16 · GitHub Actions + GitHub Pages — deploy a generated HTML report
+- **Status:** ⬜ To do
+- **Goal:** Use GitHub Actions to run `python main.py` on push and publish the generated `output.html` to GitHub Pages automatically. Covers: headless execution (no browser open), CI workflow, static site deployment.
+- **Methodology:** SDD
+- **Notes:** Requires a small change to `main.py` to support a `--no-browser` flag for headless environments.
+- **Learnings:**
+
+---
+
 ### EXP-14 · SDD — Claude reviews and improves a spec
 - **Status:** ⬜ To do
 - **Goal:** Write a deliberately incomplete or vague spec and ask Claude to identify gaps, contradictions and untestable requirements. Learn what makes a good spec.
@@ -197,5 +206,5 @@
 | Level 1 — Immediate productivity | 4 | 0 | 0 |
 | Level 2 — AI-assisted workflow | 4 | 0 | 0 |
 | Level 3 — AI inside projects | 4 | 0 | 0 |
-| Level 4 — Spec Driven Development | 4 | 2 | 0 |
-| **Total** | **16** | **2** | **0** |
+| Level 4 — Spec Driven Development | 5 | 2 | 0 |
+| **Total** | **17** | **2** | **0** |

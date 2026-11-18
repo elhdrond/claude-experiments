@@ -52,13 +52,13 @@ interface/       ← HTML output, CLI
 git clone https://github.com/elhdrond/claude-experiments
 cd claude-experiments
 
-# Per experiment (example: EXP-13)
+# EXP-13
 cd exp-13-gbp-eur-converter
 pip install requests python-dotenv pytest
 cp .env.example .env   # set GBP_AMOUNT
 python converter.py
 
-# Per experiment (example: EXP-15A)
+# EXP-15A
 cd exp-15a-pathfinding-visualiser
 python main.py
 ```

@@ -131,6 +131,34 @@
 
 ---
 
+## Level 4 — Spec Driven Development
+
+### EXP-13 · SDD — Write a spec, implement from it
+- **Status:** ✅ Done
+- **Goal:** Write a full spec for a small feature using `specs/_TEMPLATE.md`, have Claude review it, then implement and generate tests from it. Practice the full SDD loop.
+- **Suggested prompt (spec review):** *"Review this spec as a senior developer. Identify: missing requirements, ambiguous statements, untestable criteria, and anything that would cause problems during implementation."*
+- **Suggested prompt (implementation):** *"Implement this feature strictly following the spec. For each functional requirement, add a comment referencing its ID (FR-01, etc.). Do not add anything not in the spec."*
+- **Suggested prompt (test generation):** *"Generate unit tests based on the acceptance criteria in this spec. Each scenario maps to at least one test. Name the tests after the scenario."*
+- **Spec file:** `specs/exp-13-gbp-eur-converter.md`
+- **Implementation:** `exp-13-gbp-eur-converter/converter.py`
+- **Notes:** Built a GBP→EUR historical converter using frankfurter.app API. Generates a self-contained HTML report with daily rates for the first trading day of each month, color-coded by above/below average rate. Implemented and tested entirely from VS Code local using Claude Code.
+- **Learnings:**
+  - SDD forces you to think through edge cases before writing code — the spec caught validation requirements (FR-07, FR-08) that would have been easy to miss
+  - Claude generates tests directly mapped to acceptance criteria when the spec uses Given/When/Then format
+  - Working locally in VS Code is faster for iteration than cloud sessions — no push/pull needed between edits
+  - `frankfurter.app` is a solid free API for currency data with no API key required
+
+---
+
+### EXP-14 · SDD — Claude reviews and improves a spec
+- **Status:** ⬜ To do
+- **Goal:** Write a deliberately incomplete or vague spec and ask Claude to identify gaps, contradictions and untestable requirements. Learn what makes a good spec.
+- **Suggested prompt:** *"This spec has intentional flaws. Act as a QA engineer and find: missing edge cases, contradictory requirements, acceptance criteria that cannot be tested, and requirements that are too vague to implement."*
+- **Notes:**
+- **Learnings:**
+
+---
+
 ## General notes & patterns
 
 > Use this section to note cross-experiment observations: prompt styles that work well, common mistakes, time saved, etc.
@@ -144,4 +172,5 @@
 | Level 1 — Immediate productivity | 4 | 0 | 0 |
 | Level 2 — AI-assisted workflow | 4 | 0 | 0 |
 | Level 3 — AI inside projects | 4 | 0 | 0 |
-| **Total** | **12** | **0** | **0** |
+| Level 4 — Spec Driven Development | 2 | 1 | 0 |
+| **Total** | **14** | **1** | **0** |
